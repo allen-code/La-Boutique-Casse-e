@@ -45,24 +45,25 @@ function organizeBookList(booklists){
 	var tableContent = "<tr class='orderTitle'><td colspan='3'>booklists</td></tr>\n"
 	for (var i = 0; i < booklists.length; ++i) {
 		var books = booklists[i];
-		//var author = books.AuthorInitials + "," + books.AuthorSurname;
+
 		var bookId = String(books.Id);
 		var bookTitle = books.Title;
 		var bookImg = 'http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/bookimg?id='+bookId;
 		var imgTag = '<img src='+bookImg+'></img>';
-		var buyuri = 'http://redsox.tcs.auckland.ac.nz/BC/Closed/Service.svc/bookbuy?id='+bookId; 
-		var imgbuy = "<img src='img/buy_photos.jpg' id='img"+bookId+"' style='width:80%;height:15%' onclick='buynow(img"+bookId+")'></img>";
-		//alert(imgbuy);
-		//var buynow = 'buynow('+bookId+')'
+		var buyuri = 'http://redsox.tcs.auckland.ac.nz/BC/Closed/Service.svc/bookbuy?id='+String(bookId); 
+		//var alink = String(<a href=buyuri></a>)
+
+		var imgbuy = "<img src='img/buy_photos.jpg' id='img"+bookId+"' style='width:80%;height:15%'>"+"</img>";
+		var alink = "<a href="+buyuri+">"+imgbuy+"</a>";
+		
 		if(i % 2 == 1){
 			tableContent += "<tr class='orderOdd'>";
 		} else{
 			tableContent += "<tr class='orderEven'>";
 		}
-		tableContent += "<td>" + bookTitle + "</td><td>"+ imgTag+ "</td><td>"+"<img src='img/buy_photos.jpg' id='buynowimg' style='width:80%;height:15%' onclick='buynow()'></img>"+"</td></tr>\n";
+		tableContent += "<td>" + bookTitle + "</td><td>"+ imgTag+ "</td><td>"+alink+"</td></tr>\n";
 	}
 	document.getElementById('booklist').innerHTML = tableContent;
-	//alert(buynow);
 }
 
 function run(){
@@ -95,18 +96,20 @@ function getBlueRay(){
 function organizeBlueRay(bluerays){
 	var tableContent = "<tr class='orderTitle' ><td colspan='3'>BlueRays</td></tr>\n";
 	for (var i = 0; i < bluerays.length; ++i) {
+		var imgbuy = "<img src='img/buy_photos.jpg' id='img"+blueId+"' style='width:80%;height:15%'>"+"</img>";
 		var bluer = bluerays[i];
 		var blueTitle = bluer.Title;
 		var blueId = bluer.Id;
 		var blueImg = 'http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/brimg?id='+blueId;
 		var imgTag = '<img src='+blueImg+'></img>'; 
-
+		var bluebuy = "http://redsox.tcs.auckland.ac.nz/BC/Closed/Service.svc/brbuy?id=" + blueId;
+		var alink = "<a href="+bluebuy+">"+imgbuy+"</a>";
 		if(i % 2 == 1){
 			tableContent += "<tr class='orderOdd'>";
 		} else{
 			tableContent += "<tr class='orderEven'>";
 		}
-		tableContent += "<td>" + blueTitle + "</td><td>"  + imgTag +"</td><td>"  + "<img src='img/buy_photos.jpg' id='buynowimg' style='width:80%;height:15%' onclick='buynow()'></img>"+"</td></tr>\n";
+		tableContent += "<td>" + blueTitle + "</td><td>"  + imgTag +"</td><td>"  + alink +"</td></tr>\n";
 	}
 	document.getElementById('blueraylist').innerHTML = tableContent;
 }
@@ -129,7 +132,7 @@ function filterlist(e){
 
 
 
-//form submission
+//form submissionx
 var uri3 = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/register";
 function signup_in(){
 	var xhttp = new XMLHttpRequest();
@@ -137,9 +140,9 @@ function signup_in(){
 	var passwd = document.getElementById('password').value;
 	var address = document.getElementById('address').value;
 	var vars = {
-		"Address":username,
 		"Name":passwd,
-		"Password":address
+		"Password":address,
+		"Address":username
 	}
 
 	xhttp.onreadystatechange = function() {
@@ -163,10 +166,7 @@ function comment_submit(){
 	var comment = document.getElementById('commenttext').value;
 	var uri_4 = uri4 + name;
 	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			//alert(1);
-			document.getElementById('commentdis').innerHTML = xhttp.responseText;
-		}
+		showcomments();
 	}
 	xhttp.open("POST", uri_4, true);
 	xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -174,23 +174,24 @@ function comment_submit(){
 	alert("Thanks for ur comment");	
 }
 
+function showcomments(){
+	var xhr = new XMLHttpRequest();
+	var uri = " http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/htmlcomments";
+	xhr.open("GET",uri,true);
+	xhr.setRequestHeader("Accept","application/xml");
+	//xhr.responseType = "document";
+	xhr.onreadystatechange = function(){
+
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var resp = xhr.responseText;
+			document.getElementById('commentdis').innerHTML = resp;
+		}
+	}
+
+	xhr.send(null);
+}
 
 
 //close service
-var close_uri1 = "http://redsox.tcs.auckland.ac.nz/BC/Closed/Service.svc/bookbuy?id=cd001";
-function buynow(id){
 
-	var list = new XMLHttpRequest();
-	alert(close_uri1);
-	//var uri = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/booksearch?term="+term;
-	//alert(1);/
-	list.open("GET",close_uri1,true);
-
-	//list.setRequestHeader("Accept","application/json");
-	list.onreadystatechange = function(){
-		//alert(close_uri1);
-	}
-	//list.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-	list.send(null);
-}
 
