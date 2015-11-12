@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="La Boutique Cassée - bookstore">
+    <meta name="author" content="allen_liu">
+
+    <title>La Boutique Cassée</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/store.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body onload="run();">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="color:#4686B0"><strong>La Boutique Cassée</strong></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" id="navbar">
+                    <li id="bookli">
+                        <a href="booklist.html"><b>Booklist</b></a>
+                    </li>
+                    <li id="bluer">
+                        <a href="blueray.html"><b>Blueray</b></a>
+                    </li>
+                    <li id="joinnav">
+                        <a href="#"><b>Join</b></a>
+                    </li>
+                    <li id="revnav">
+                        <a href="comment.html"><b>Reviews</b></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div>
+            <img id="logo" src="img/logo.png" >
+        </div>
+
+        <div class="col-lg-12" id="aboutus">
+            
+        </div>
+        
+        <!--left section-->
+        <div class="row col-lg-4" id="left">
+            <div id="search-promt">
+                <h4>Search</h4>
+            </div>
+
+            <!-- search box -->
+            <div>
+                <div class="input-group">
+                    <input type="text" id="searchterm" class="form-control" aria-label="..." onkeyup="filterlist('searchterm')">
+                    <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="search_button">Blueray </button>
+                    <ul class="dropdown-menu dropdown-menu-right" id="choice_ul" >
+                      <li><a href="#" id="blueray" onclick="choicebar(this); run()">Book</a></li>
+                      <li><a href="#" id="book" onclick="choicebar(this)">BlueRay</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+            
+        </div>
+
+
+        <!-- right section -->
+        <div class="col-lg-8" id="right">
+
+            <table class="table" id="blueraylist"></table>
+        </div>
+
+        <!-- /.row -->
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+
+    </div>
+    <!-- /.container -->
+    <br>
+    <br>
+    <br>
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- store.js -->
+    <script src="js/store.js"></script>
+
+</body>
+
+<!-- footer -->
+<footer>
+    <div id="copyright">Copyright &copy; 2015 La Boutique Cassée.</div>
+</footer>
+
+</html>

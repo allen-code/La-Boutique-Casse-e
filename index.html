@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="css/store.css" rel="stylesheet">
 
+    <!-- Custom CSS -->
+    <link href="css/full-slider.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -26,7 +28,7 @@
 
 </head>
 
-<body onload="run();showcomments()">
+<body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -44,14 +46,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="navbar">
-                    <li id="storenav">
-                        <a href="#"><b>Store</b></a>
+                    <li id="bookli">
+                        <a href="booklist.html"><b>Booklist</b></a>
+                    </li>
+                    <li id="bluer">
+                        <a href="blueray.html"><b>Blueray</b></a>
                     </li>
                     <li id="joinnav">
-                        <a href="#join"><b>Join</b></a>
+                        <a href="#"><b>Join</b></a>
                     </li>
                     <li id="revnav">
-                        <a href="#review"><b>Reviews</b></a>
+                        <a href="comment.html"><b>Reviews</b></a>
                     </li>
 
                 </ul>
@@ -62,108 +67,48 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-        <div>
-            <img id="logo" src="img/logo.png" >
-        </div>
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
 
-        <div class="col-lg-12" id="aboutus">
-            
-        </div>
-        
-        <!--left section-->
-        <div class="row col-lg-4" id="left">
-            <div id="search-promt">
-                <h4>Search</h4>
-            </div>
-
-            <!-- search box -->
-            <div>
-                <div class="input-group">
-                    <input type="text" id="searchterm" class="form-control" aria-label="..." onkeyup="filterlist('searchterm')">
-                    <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="search_button">Book </button>
-                    <ul class="dropdown-menu dropdown-menu-right" id="choice_ul" >
-                      <li><a href="#" id="book" onclick="choicebar(this); run()">Book</a></li>
-                      <li><a href="#" id="blueray" onclick="choicebar(this)">BlueRay</a></li>
-                    </ul>
-                </div><!-- /btn-group -->
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-            
-        </div>
-
-
-        <!-- right section -->
-        <div class="col-lg-8" id="right">
-            <table class="table" id="show_result"></table>
-            <!--<div id="show_result"></div>-->
-            <div id="showtest"></div>
-            <table class="table" id="booklist"></table>
-            <table class="table" id="blueraylist"></table>
-        </div>
-
-        <!-- /.row -->
-
-
-        <br>
-        <br>
-        <br>
-        <br>
-        <!-- join the store -->
-        <div class="container" >
-            <div class="row" >
-                <div class="col-sm-6 col-md-4 col-md-offset-4">
-                    <div class="account-wall" id="join">
-                        <form class="form-signin">
-                        <input id="username" type="text" class="form-control" placeholder="Name" required autofocus>
-                        <input id="password" type="password" class="form-control" placeholder="Password" required>
-                        <input id="address" type="text" class="form-control" placeholder="address" required>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="signup_in()">
-                            Sign up / in</button>
-                        <label class="checkbox pull-left" >
-                            <input type="checkbox" value="remember-me">
-                            Remember me
-                        </label>
-                        <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
-                        </form>
-                    </div>
-                    <a href="#" class="text-center new-account">Create an account </a>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://www.wallpaperup.com/uploads/wallpapers/2013/12/11/192214/c9bb6120f5894bf96cb3ce486bb83249.jpg'); "></div>
+                <div class="carousel-caption">
+                    <h2>Welcome to La Boutique Cassée </h2>
                 </div>
-
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://blog.jelanieshop.com/wp-content/uploads/2014/03/Common-Galaxia-Coffee-bar-in-Australia-Jelanie-4.jpg'); "></div>
+                <div class="carousel-caption">
+                    <h2>Enjoy coffee in our real store </h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('http://www.thornhillchurch.org.uk/wp-content/uploads/2013/02/check-it-out.png');"></div>
+                <div class="carousel-caption">
+                    <h2>Check out our new lists online </h2>
+                </div>
             </div>
         </div>
-        <div id="success"></div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
-        <!-- REVIEW the store -->
-        <div class="container" id="review">
-                       <!-- Comments Form -->
-            <div class="well">
-                <h4>Leave a Comment:</h4>
-                <form role="form">
-                    <div class="form-group">
-                        <textarea id="nametext" class="form-control" placeholder="put your name here" rows="2"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="commenttext" name="name" placeholder="put your comments here" rows="5" class="form-control"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onclick="comment_submit()">Submit</button>
-                </form>
-            </div>
-            <hr>
-
-            <!-- Posted Comments -->
-
-            <!-- Comment -->
-            <div id="commentdis" ></div>
-
-        </div>
-    </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
     <!-- /.container -->
     <br>
     <br>
