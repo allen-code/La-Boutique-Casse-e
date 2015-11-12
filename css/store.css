@@ -1,0 +1,149 @@
+body {
+    padding-top: 70px;
+    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+/* logo */
+
+#logo{
+
+	height: 90%;
+	width: 90%;
+}
+
+
+/* left section search */
+#left{
+	float: left;
+	padding-right: 5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#search-promt{
+	margin-left: 1px;
+}
+
+
+/* right section display data */
+#right{
+	padding-right: 5%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#booklist{
+    display: 'none';
+}
+
+.orderEven{background-color: #E6FFFF; width: 30%;}
+.orderOdd{background-color: #E6FFCC; width: 30%;}
+.orderTitle{background-color: #9CBCF7; width: 30%;}
+.table{
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    table-layout: fixed;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+
+}
+.table th {
+
+    padding: 8px;
+
+}
+.table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+
+}
+
+/* sign in/up form  */
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.need-help
+{
+    margin-top: 10px;
+}
+.new-account
+{
+    display: block;
+    margin-top: 10px;
+}
+
+/* copyright */
+
+#copyright{
+	text-align: center;
+}
