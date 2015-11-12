@@ -130,7 +130,19 @@ function filterlist(e){
 
 }
 
-
+function filterlistblue(e){
+	var textfield = document.getElementById(e).value;
+	var option = document.getElementById('search_buttonblue').innerHTML;
+	if( option== "Blueray"){
+		uri2 = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/brsearch?term="+textfield;
+		uri = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/booklist";
+		getBlueRay();
+	}else if (option == "Book"){
+		uri = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/booksearch?term="+textfield;
+		uri2 = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/brlist";
+		getBookList();	
+	}
+}
 
 //form submissionx
 var uri3 = "http://redsox.tcs.auckland.ac.nz/BC/Open/Service.svc/register";
